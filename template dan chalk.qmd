@@ -1,0 +1,237 @@
+---
+title: "Presentation"
+format:
+  revealjs:
+    chalkboard: true
+---
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>.
+
+## Bullets
+
+When you click the **Render** button a document will be generated that includes:
+
+-   Content authored with markdown
+-   Output from executable code
+
+## Code
+
+When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```
+
+## Slide incremental
+
+::: incremental
+-   Eat spaghetti
+-   Drink wine
+-   Eat spaghetti
+-   Drink wine
+-   Eat spaghetti
+-   Drink wine
+:::
+
+## Slide non-incremental
+
+::: nonincremental
+-   Eat spaghetti
+-   Drink wine
+-   Eat spaghetti
+-   Drink wine
+-   Eat spaghetti
+-   Drink wine
+:::
+
+## Memasukkan gambar
+
+![Kebahagiaan pekerjaan](emphappy.png){fig-align="left"}
+
+## Multiple kolom dengan gambar
+
+::: columns
+::: {.column width="50%"}
+SMK PK
+
+![Sure](emphappy.png){#fig-surus}
+:::
+
+::: {.column width="50%"}
+Temuan
+
+1.  Pekerjaan berpengaruh
+
+2.  Sulit
+:::
+:::
+
+## Slide bisa discroll {.scrollable}
+
+Mudah
+
+Dekat
+
+Kuat
+
+Tidak
+
+Iya
+
+Masak
+
+Mudah
+
+Dekat
+
+Kuat
+
+Tidak
+
+Iya
+
+Masak
+
+## Code
+
+``` {.python code-line-numbers="4-5"}
+import numpy as np
+import matplotlib.pyplot as plt
+
+r = np.arange(0, 2, 0.01)
+theta = 2 * np.pi * r
+fig, ax = plt.subplots(subplot_kw={'projection': 'polar'})
+ax.plot(theta, r)
+ax.set_rticks([0.5, 1, 1.5, 2])
+ax.grid(True)
+plt.show()
+```
+
+## Code 2 Progresif
+
+``` {.python code-line-numbers="|1|2|3|4|5|6|7|8"}
+import numpy as np
+import matplotlib.pyplot as plt
+
+r = np.arange(0, 2, 0.01)
+theta = 2 * np.pi * r
+fig, ax = plt.subplots(subplot_kw={'projection': 'polar'})
+ax.plot(theta, r)
+ax.set_rticks([0.5, 1, 1.5, 2])
+ax.grid(True)
+plt.show()
+```
+
+## Code SPTK
+
+``` {.r code-line-numbers="|1|2|3|4|5|6|7|8"}
+library(dplyr)
+library(ggplot2)
+library(stargazer)
+
+sptk21 <- read.csv("sptk2021.csv")
+
+pandemic <- data.frame(happy = sptk21$R1501-sptk21$R1502,
+                       prov = sptk21$R101_NAMA,
+                       urban = sptk21$R105,
+                       sex = sptk21$B4K4,
+                       age = sptk21$B4K5,
+                       marital = sptk21$B4K6,
+                       education = sptk21$B4K7,
+                       length_stay = sptk21$LAMA_TINGG,
+                       employment = sptk21$R601A,
+                       income = sptk21$R603)
+```
+
+## Kode dicantumkan
+
+```{r, echo = TRUE}
+library(dplyr)
+observasi1 <- c(1:20)
+nilaistat1 <- c(56, 65, 78, 70, 63, 80, 65, 87, 50, 73, 
+                68, 55, 90, 80, 67, 64, 57, 78, 65, 54)
+stat1 <- data.frame(observasi1, nilaistat1)
+table(stat1$nilaistat1)
+```
+
+## Panel Tabset
+
+::: panel-tabset
+### SMK
+
+Mudah
+
+Dekat
+
+Kuat
+
+Tidak
+
+Iya
+
+Masak
+
+### SMK PK
+
+saya
+
+akan
+
+kapan
+
+bisa
+
+tapi
+
+apakah
+
+### PSP
+
+jangan
+
+sampai
+
+tidak
+
+ada
+
+yang
+
+masuk
+
+### GTK
+
+guru
+
+mungkin
+
+bisa
+
+tapi
+
+tidak
+
+akan
+:::
+
+## Data Sekunder
+
+Mungkin bisa kita gunakan bebebrapa data
+
+::: footer
+data dari BPS
+:::
+
+## Beberapa footnote
+
+-   SMK PK [^1]
+-   SMK
+-   PSP
+
+[^1]: Baru dimulai sejak 2020
+
+::: aside
+catatan.
+:::
